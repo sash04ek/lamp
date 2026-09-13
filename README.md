@@ -104,7 +104,7 @@ docker-compose exec mysql mysql -u root -p
 
 ## Application Features
 
-The p9 application includes modules for:
+The web application includes modules for:
 - User authentication and management
 - Calendar and contact management
 - File storage and synchronization
@@ -154,10 +154,6 @@ docker-compose exec php chown -R www-data:www-data /var/www/html
 - Check MySQL is running: `docker-compose ps`
 - Verify credentials in `.env`
 - Check MySQL logs: `docker-compose logs mysql`
-
-## License
-
-See LICENSE file in `html/p9/` directory for licensing information.
 
 ## Support
 
