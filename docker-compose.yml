@@ -1,7 +1,10 @@
 services:
   # Apache + PHP + Xdebug
   web:
-    build: .
+    build:
+      context: .
+      args:
+        PHP_VERSION: ${PHP_VERSION:-8.4}
     container_name: lamp_web
     ports:
       - "80:80"

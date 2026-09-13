@@ -65,6 +65,17 @@ Edit `php.ini` to customize PHP settings such as:
 - Session timeouts
 - Display errors
 
+### Switching PHP Version
+The PHP version is controlled by the `PHP_VERSION` variable in `.env` (e.g. `PHP_VERSION=8.4`), which is passed as a build arg to the `php:${PHP_VERSION}-apache` base image in the `Dockerfile`.
+
+To switch versions:
+```bash
+# Edit PHP_VERSION in .env, then rebuild the image
+docker-compose build --no-cache web
+docker-compose up -d
+```
+Any tag from the [official PHP Docker images](https://hub.docker.com/_/php) that has an `-apache` variant works (e.g. `8.1`, `8.2`, `8.3`, `8.4`).
+
 ### Docker Configuration
 Modify `docker-compose.yml` to:
 - Change port mappings
