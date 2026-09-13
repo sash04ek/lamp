@@ -92,14 +92,14 @@ docker-compose build
 
 ### Viewing Logs
 ```bash
-docker-compose logs -f php
-docker-compose logs -f mysql
+docker-compose logs -f web
+docker-compose logs -f db
 ```
 
 ### Accessing Container Shell
 ```bash
-docker-compose exec php bash
-docker-compose exec mysql mysql -u root -p
+docker-compose exec web bash
+docker-compose exec db mysql -u root -p
 ```
 
 ## Application Features
@@ -131,7 +131,7 @@ docker-compose down -v
 docker-compose build --no-cache
 
 # Run a one-off command
-docker-compose exec php php script.php
+docker-compose exec web php script.php
 
 # View resource usage
 docker stats
@@ -147,7 +147,7 @@ If port 80 or 3306 is already in use:
 ### Permission Issues
 If you encounter permission errors in the container:
 ```bash
-docker-compose exec php chown -R www-data:www-data /var/www/html
+docker-compose exec web chown -R www-data:www-data /var/www/html
 ```
 
 ### Database Connection Issues

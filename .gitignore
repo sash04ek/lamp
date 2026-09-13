@@ -1,2 +1,5 @@
 html/*
 !html/.gitkeep
+
+.env
+.DS_Store
