@@ -4,14 +4,7 @@ A complete LAMP (Linux, Apache, MySQL, PHP) stack setup using Docker Compose.
 
 ## Overview
 
-This project provides a containerized LAMP environment with a comprehensive PHP application (p9) that includes:
-- Core functionality with user authentication and management
-- Calendar and contact management features
-- File storage and cloud integration (Dropbox, Google Drive, Seafile)
-- Email and messaging capabilities
-- Administrative panel with advanced security features
-- Multi-factor authentication support (Duo, Keycloak)
-- WebDAV/DAV support
+This project provides a containerized LAMP environment with Docker Compose, configured to run a sophisticated PHP application with support for multiple features including authentication, calendar management, contacts, file storage, and more.
 
 ## Project Structure
 
@@ -22,21 +15,11 @@ This project provides a containerized LAMP environment with a comprehensive PHP 
 ├── php.ini                 # PHP configuration
 ├── .env                    # Environment variables
 ├── .gitignore              # Git ignore rules
-└── html/                   # Web root
-    ├── index.php           # Main entry point
-    └── p9/                 # Main application
-        ├── modules/        # Feature modules
-        ├── vendor/         # Composer dependencies
-        ├── static/         # Static assets
-        ├── system/         # System files
-        ├── data/           # Application data
-        │   ├── cache/
-        │   ├── logs/
-        │   └── settings/
-        ├── adminpanel/     # Administrative interface
-        ├── dev/            # Development utilities
-        └── composer.json   # PHP dependencies
+├── README.md               # This file
+└── html/                   # Web root (content managed separately)
 ```
+
+> **Note:** The `html/` directory contains the web application and is managed separately (see `.gitignore`). This repository tracks the Docker and configuration files needed to run the LAMP stack.
 
 ## Requirements
 
@@ -109,47 +92,18 @@ docker-compose exec php bash
 docker-compose exec mysql mysql -u root -p
 ```
 
-## File Structure Details
+## Application Features
 
-### Core Modules (`html/p9/modules/`)
-The application includes multiple feature modules:
-- **Core**: Base functionality and authentication
-- **AdminAuth**: Administrator authentication
-- **AdminPanelWebclient**: Web-based admin interface
-- **Calendar**: Calendar management
-- **Contacts**: Contact management
-- **Files**: File storage and management
-- **Dav**: WebDAV protocol support
-- **DavContacts**: WebDAV contacts synchronization
-- **Google, Facebook, Keycloak**: Third-party integrations
-- **And many more...**
-
-### Static Assets (`html/p9/static/`)
-Contains compiled JavaScript, CSS, and other frontend assets.
-
-### Data Directory (`html/p9/data/`)
-Application runtime data including:
-- **cache/**: Cached data
-- **logs/**: Application logs
-- **settings/**: User and system settings
-- **encryption_key.php**: Encryption configuration
-
-## Database Setup
-
-Database migrations and setup scripts are available in `html/p9/dev/`:
-- `migrate.php`: Database migration script
-- `migrate-contacts-to-dav-cards.php`: Contacts migration
-
-Run migrations after initial setup:
-```bash
-docker-compose exec php php /var/www/html/p9/dev/migrate.php
-```
-
-## API Documentation
-
-API documentation is available in:
-- `html/p9/apidoc.json`: OpenAPI specification
-- `html/p9/apidoc-overview.md`: API overview
+The p9 application includes modules for:
+- User authentication and management
+- Calendar and contact management
+- File storage and synchronization
+- Email and messaging
+- Administrative panel
+- Multi-factor authentication
+- Third-party integrations (Google, Facebook, Keycloak, etc.)
+- WebDAV/DAV support
+- And many more features
 
 ## Useful Commands
 
