@@ -47,7 +47,6 @@ This project provides a containerized LAMP environment with Docker Compose, conf
 
 4. **Access the application:**
    - Web application: `http://localhost`
-   - Admin panel: `http://localhost/p9/adminpanel`
 
 ## Services
 
